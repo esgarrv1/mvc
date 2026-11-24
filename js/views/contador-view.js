@@ -49,6 +49,18 @@ al pulsar el botón incrementar y el de decrementar */
 let funcionIncrementar = null;
 let funcionDecrementar = null;
 
+document.body.innerHTML = `
+ <div class="w-50 bg-light m-auto mt-3 p-2">
+        <p class="h2 text-center">Contador</p>
+        <p id="contador" class="fs-1 text-center">0</p>
+        <div class="d-flex gap-2">
+            <button class="btn btn-primary flex-grow-1" id="btnIncrementar">Incrementar</button>
+            <button class="btn btn-danger flex-grow-1" id="btnDecrementar">Decrementar</button>
+        </div>
+        <p id="mensaje" class="h6 text-danger text-center mt-2"></p>
+    </div>
+`;
+
 document.getElementById('btnIncrementar').addEventListener('click', incrementar);
 document.getElementById('btnDecrementar').addEventListener('click', decrementar);
 document.body.addEventListener('keydown', comprobarTecla);
