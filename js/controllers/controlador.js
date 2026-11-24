@@ -1,18 +1,22 @@
 import * as contador from '../models/contador.js'
-import { actualizarContador, mostrarMensaje } from '../views/contador-view.js';
+import * as contadorVista from '../views/contador-view.js';
 
-function incrementar(evt) {
+function incrementar() {
     contador.incrementar();
-    actualizarContador(contador.obtener());
+    contadorVista.actualizarContador(contador.obtener());
 }
 
-function decrementar(evt) {
+function decrementar() {
     if(contador.decrementar()){
-        actualizarContador(contador.obtener());
+        contadorVista.actualizarContador(contador.obtener());
     } else {
-        mostrarMensaje('No puede bajar de cero');
+        contadorVista.mostrarMensaje('No puede bajar de cero');
     }
 }
 
-document.getElementById('btnIncrementar').addEventListener('click', incrementar);
-document.getElementById('btnDecrementar').addEventListener('click', decrementar);
+// Nos sucribimos a los eventos de la vista para que nos informe cuando se quiera
+// realizar un incremento o un decremento. Sería como el addEventListener
+contadorVista.alIncrementar(incrementar);
+contadorVista.alDecrementar(decrementar);
+
+
