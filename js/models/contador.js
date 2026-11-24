@@ -1,18 +1,19 @@
-let contador = 0;
+export class Contador {
+    #contador = 0;
 
-export function incrementar() {
-    contador++;
-}
-
-export function decrementar() {
-    if(contador === 0) {
-        return false;
-    } else {
-        contador--;
-        return true;
+    incrementar() {
+        this.#contador++;
     }
-}
 
-export function obtener() {
-    return contador;
+    decrementar() {
+        if(this.#contador === 0) {
+            return false;
+        } else {
+            this.#contador--;
+            return true;
+        }
+    }
+    obtener() {
+        return this.#contador;
+    }
 }
